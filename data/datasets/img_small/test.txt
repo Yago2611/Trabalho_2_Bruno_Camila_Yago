@@ -1,0 +1,15 @@
+img_1/test/000.png 4
+img_1/test/001.png 4
+img_1/test/002.png 4
+img_1/test/003.png 4
+img_1/test/004.png 4
+img_1/test/005.png 0
+img_1/test/006.png 0
+img_1/test/007.png 0
+img_1/test/008.png 0
+img_1/test/009.png 0
+img_1/test/010.png 8
+img_1/test/011.png 8
+img_1/test/012.png 8
+img_1/test/013.png 8
+img_1/test/014.png 8
