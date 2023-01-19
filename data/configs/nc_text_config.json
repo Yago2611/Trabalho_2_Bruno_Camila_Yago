@@ -1,6 +1,6 @@
 {
     "train_dataset": {
-        "type": "image",
+        "type": "news",
         "path": "data/datasets/news-small/train.txt"
     },
     "test_dataset": {
