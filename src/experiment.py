@@ -36,6 +36,6 @@ class Experiment:
             true_classes.append(sample_class)
         return true_classes
     
-    def get_time(self,inicio):
+    def get_time(self,inicio: float):
         return time.time() - inicio
 
