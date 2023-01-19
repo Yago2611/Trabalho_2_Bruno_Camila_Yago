@@ -3,6 +3,7 @@ from typing import Union, Dict, List
 from src.datasets.dataset_interface import DatasetInterface
 from src.classifiers.classifier_interface import ClassifierInterface
 from src.metrics import accuracy, confusion_matrix
+import time
 
 
 class Experiment:
@@ -16,10 +17,12 @@ class Experiment:
 
     def run(self, classifier: ClassifierInterface) -> Dict[str, Union[float, List]]:
         """ executa o experimento """
+        inicio = time.time()
         classifier.train(self.train_dataset)
         pred_classes = classifier.predict(self.test_dataset)
 
         metrics = {
+            "time": self.get_time(inicio),
             "accuracy": accuracy(self.true_classes, pred_classes),
             "confusion_matrix": confusion_matrix(self.true_classes, pred_classes)
         }
@@ -32,3 +35,7 @@ class Experiment:
             _, sample_class = dataset.get(idx)
             true_classes.append(sample_class)
         return true_classes
+    
+    def get_time(self,inicio):
+        return time.time() - inicio
+
