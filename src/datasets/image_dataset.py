@@ -8,10 +8,17 @@ class ImageDataset(DatasetInterface):
         super().__init__(path)
         # ler arquivo contendo os nomes das imagens e as classes e armazenar
         # em uma lista
+        self.lista = []
+        arquivo = open(path,"r")
+        linhas = arquivo.readlines()
+        for linha in linhas:
+            objeto = linha.split()
+            self.lista.append(objeto)
+        arquivo.close()
 
     def size(self) -> int:
         # retornar tamanho do dataset (numero de linhas do arquivo)
-        return 0
+        return len(self.lista)
 
     def get(self, idx: int) -> Tuple[Any, str]:
         # ler a i-esima imagem do disco usando a biblioteca cv2 e retornar
