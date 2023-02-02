@@ -38,4 +38,5 @@ class KnnClassifier(ClassifierInterface):
                             distancias[i] = (d,treino[1])
         for i in distancias:
             pass
+        distancia.count(texto q vc quer contar)
         return []
