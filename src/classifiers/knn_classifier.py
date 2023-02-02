@@ -25,6 +25,8 @@ class KnnClassifier(ClassifierInterface):
             self.dados_teste.append(dado)
         for teste in self.dados_teste:
             distancias = []
+            dic = {}
+            previsao = 0 
             for treino in self.dados_treino:
                 d = 0
                 for i in range(len(teste[0])):
@@ -36,7 +38,27 @@ class KnnClassifier(ClassifierInterface):
                     for i in range(len(distancias)):
                         if d < distancias[i][0]:
                             distancias[i] = (d,treino[1])
-        for i in distancias:
-            pass
-        distancia.count(texto q vc quer contar)
-        return []
+                            break
+            for i in distancias:
+                cont = 0
+                if len(dic) == 0:
+                    dic = {i[1]:1}
+                else:
+                    for x in dic:
+                        if x == i[1]:
+                            dic[x]+=1
+                        else:
+                            cont+=1
+                if cont == len(dic):
+                    dic[i[1]]=1
+                cont = 0 
+            for x in dic:
+                if previsao == 0:
+                    previsao = (x,dic[x]) 
+                else:
+                    if dic[x]>previsao[1]:
+                        previsao = (x,dic[x])
+            previsoes.append(previsao)
+        for x in range(len(previsoes)):
+           previsoes[x] = previsoes[x][0]
+        return previsoes
