@@ -24,4 +24,9 @@ class ImageDataset(DatasetInterface):
         # ler a i-esima imagem do disco usando a biblioteca cv2 e retornar
         # a imagem e a respectiva classe
         img = cv2.imread(self.lista[idx][0],0) 
-        return (img,self.lista[idx[1]])
+        img = img.tolist()
+        image = []
+        for y in img:
+            for x in y:
+                image.append(x)
+        return (image,self.lista[idx][1])

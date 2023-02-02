@@ -13,10 +13,11 @@ def main():
 
     train_config = config['train_dataset']
     test_config = config['test_dataset']
+    classifier_config = config['classifier']
 
     train_dataset = create_dataset(train_config["path"], train_config["type"])
     test_dataset = create_dataset(test_config["path"], test_config["type"])
-    classifier = create_classifier("knn", config)
+    classifier = create_classifier(classifier_config["type"], config)
 
     experiment = Experiment(train_dataset, test_dataset)
     metrics = experiment.run(classifier)
