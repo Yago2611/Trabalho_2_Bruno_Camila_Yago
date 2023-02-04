@@ -38,7 +38,28 @@ for x in range(len(lista)):
     dado = (image,lista[x][1])
     dados_teste.append(dado)
 
-previsoes = []
+cicloides = []
+dif_classes = []
+for x in dados_treino:
+    if len(dif_classes) == 0 or not x[1] in dif_classes:
+        dif_classes.append(x[1])
+for x in dif_classes:
+    soma = 0
+    contador = 0
+    for y in dados_treino:
+        if y[1] == x:
+            contador +=1
+            if soma ==0:
+                soma = y[0]
+            else:
+                for i in range(len(soma)):
+                    soma[i] += y[0][i]
+    for i in range(len(soma)):
+        soma[i] /= contador
+    cicloides.append((soma,x))
+for x in cicloides:
+    print(x)
+"""previsoes = []
 for teste in dados_teste:
     distancias = []
     dic = {}
@@ -77,4 +98,20 @@ for teste in dados_teste:
     previsoes.append(previsao)
 for x in range(len(previsoes)):
     previsoes[x] = previsoes[x][0]
-print(previsoes)
+classes = []
+for x in lista:
+    classes.append(x[1])
+dif_classes = []
+for x in classes:
+    if len(dif_classes) == 0 or not x in dif_classes:
+        dif_classes.append(x)
+matriz = []
+for x in dif_classes:
+    vetor = []
+    for y in dif_classes:
+        valor = 0
+        for n in range(len(classes)):
+            if classes[n] == x and previsoes[n] == y:
+                valor +=1
+        vetor.append(valor)
+    matriz.append(vetor)"""

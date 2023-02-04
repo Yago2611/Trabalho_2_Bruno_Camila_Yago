@@ -194,5 +194,3 @@ classifier = create_classifier(classifier_config["type"], config)
 
 experiment = Experiment(train_dataset, test_dataset)
 metrics = experiment.run(classifier)
-
-print(config)

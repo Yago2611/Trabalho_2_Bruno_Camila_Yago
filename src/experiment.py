@@ -17,16 +17,20 @@ class Experiment:
 
     def run(self, classifier: ClassifierInterface) -> Dict[str, Union[float, List]]:
         """ executa o experimento """
+        tamanho = self.train_dataset.size()
         inicio = time.time()
         classifier.train(self.train_dataset)
+        tempo_treino = self.get_time(inicio)/tamanho
+        tamanho = self.test_dataset.size()
+        inicio = time.time()
         pred_classes = classifier.predict(self.test_dataset)
-
+        tempo_previsao = self.get_time(inicio)/tamanho
         metrics = {
-            "time": self.get_time(inicio),
+            "training time per sample": f"{tempo_treino:.3f}s",
+            "inference time per sample": f"{tempo_previsao:.3f}s",
             "accuracy": accuracy(self.true_classes, pred_classes),
             "confusion_matrix": confusion_matrix(self.true_classes, pred_classes)
         }
-
         return metrics
 
     def _get_true_classes_from_dataset(self, dataset: DatasetInterface) -> List[str]:

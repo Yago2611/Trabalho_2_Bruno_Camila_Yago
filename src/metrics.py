@@ -8,15 +8,23 @@ def accuracy(true_classes: List[str], predicted_classes: List) -> float:
     for x in range(len(true_classes)):
         if predicted_classes[x] == true_classes[x]:
             acertos+=1
-    return acertos/100
+    return f"{acertos/len(true_classes):.2f}"
 
 
 def confusion_matrix(true_classes: List[str], predicted_classes: List) -> List[List[int]]:
-    """  retorna a matriz de confusao 
-    veja explicacao em [1] ou [2], mas note que no trabalho nao eh permitido
-    usar bibliotecas para calcular a matriz de confusao.
-
-    [1] https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html
-    [2] https://en.wikipedia.org/wiki/Confusion_matrix
-    """
-    return [[]]
+    """  retorna a matriz de confusao """
+    dif_classes = []
+    for x in true_classes:
+        if len(dif_classes) == 0 or not x in dif_classes:
+            dif_classes.append(x)
+    matriz = []
+    for x in dif_classes:
+        vetor = []
+        for y in dif_classes:
+            valor = 0
+            for n in range(len(true_classes)):
+                if true_classes[n] == x and predicted_classes[n] == y:
+                    valor +=1
+            vetor.append(valor)
+        matriz.append(vetor)
+    return f"{dif_classes} --> {matriz}"

@@ -1,0 +1,7 @@
+train_dataset: {'type': 'image', 'path': 'data/datasets/img_small/train.txt'}
+test_dataset: {'type': 'image', 'path': 'data/datasets/img_small/test.txt'}
+classifier: {'type': 'nc'}
+training time per sample: 0.002s
+inference time per sample: 0.002s
+accuracy: 0.87
+confusion_matrix: ['4', '0', '8'] --> [[5, 0, 0], [0, 5, 0], [1, 1, 3]]
