@@ -1,10 +1,12 @@
-train_dataset: {'type': 'news', 'path': 'data/datasets/news-small/train.txt'}
-test_dataset: {'type': 'news', 'path': 'data/datasets/news-small/test.txt'}
-classifier: {'type': 'nc'}
-training time per sample: 0.011s
-inference time per sample: 0.006s
-accuracy: 0.53
-confusion_matrix: ['inf', 'at2', 'pot'] --> 
-[4, 0, 1]
-[2, 1, 2]
-[0, 2, 3]
+train_dataset: {'type': 'image', 'path': 'data/datasets/img_medium/train.txt'}
+test_dataset: {'type': 'image', 'path': 'data/datasets/img_medium/test.txt'}
+classifier: {'type': 'knn'}
+training time per sample: 0.001s
+inference time per sample: 0.081s
+accuracy: 0.84
+confusion_matrix: ['0', '7', '8', '4', '3'] --> 
+[18, 0, 2, 0, 0]
+[0, 15, 0, 5, 0]
+[1, 0, 14, 3, 2]
+[1, 0, 0, 19, 0]
+[0, 0, 2, 0, 18]

@@ -9,6 +9,7 @@ class ImageDataset(DatasetInterface):
         # ler arquivo contendo os nomes das imagens e as classes e armazenar
         # em uma lista
         self.lista = []
+        self.palavras = "NULL"
         arquivo = open(path,"r")
         linhas = arquivo.readlines()
         for linha in linhas:

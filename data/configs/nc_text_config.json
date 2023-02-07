@@ -1,11 +1,11 @@
 {
     "train_dataset": {
         "type": "news",
-        "path": "data/datasets/news-small/train.txt"
+        "path": "data/datasets/news-tiny/train.txt"
     },
     "test_dataset": {
         "type": "news",
-        "path": "data/datasets/news-small/test.txt"
+        "path": "data/datasets/news-tiny/test.txt"
     },
     "classifier": {
         "type": "nc"

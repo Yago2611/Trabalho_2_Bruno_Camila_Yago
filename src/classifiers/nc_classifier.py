@@ -7,12 +7,14 @@ from src.datasets.dataset_interface import DatasetInterface
 class NearestCentroidClassifier(ClassifierInterface):
     def __init__(self, config: Dict) -> None:
         super().__init__(config)
+        self.train_dataset = 0
         self.centroides = []
         self.dados_treino = []
         self.dados_teste = []
 
     def train(self, train_dataset: DatasetInterface) -> None:
         """ calcular os centroides por classe """
+        self.train_dataset = train_dataset
         for x in range(len(train_dataset.lista)):
            dado = train_dataset.get(x)
            self.dados_treino.append(dado)
@@ -38,6 +40,8 @@ class NearestCentroidClassifier(ClassifierInterface):
     def predict(self, test_dataset: DatasetInterface) -> List[str]:
         """ para cada amostra no dataset, buscar o centroide mais proximo e respectiva retornar a classe """
         previsoes = []
+        if (test_dataset.palavras != "NULL"):
+            test_dataset.palavras = self.train_dataset.palavras
         for x in range(len(test_dataset.lista)):
             dado = test_dataset.get(x)
             self.dados_teste.append(dado)

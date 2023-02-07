@@ -26,7 +26,7 @@ class NewsDataset(DatasetInterface):
             texto = texto.split()
             texto_corrigido = []
             for palavra in texto:
-                if not(palavra in stopwords or palavra.isnumeric()):
+                if not(palavra in stopwords):
                     texto_corrigido.append(palavra)
             arquivo.close() 
             self.textos_corrigidos.append([texto_corrigido,self.lista[x][1]])

@@ -1,11 +1,11 @@
 {
     "train_dataset": {
         "type": "image",
-        "path": "data/datasets/img_small/train.txt"
+        "path": "data/datasets/img_medium/train.txt"
     },
     "test_dataset": {
         "type": "image",
-        "path": "data/datasets/img_small/test.txt"
+        "path": "data/datasets/img_medium/test.txt"
     },
     "classifier": {
         "type": "knn"

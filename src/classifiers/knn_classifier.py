@@ -10,8 +10,10 @@ class KnnClassifier(ClassifierInterface):
         self.dados_treino = []
         self.dados_teste = []
         self.distancias = []
+        self.train_dataset = 0 
 
     def train(self, train_dataset: DatasetInterface) -> None:
+        self.train_dataset = train_dataset
         for x in range(len(train_dataset.lista)):
            dado = train_dataset.get(x)
            self.dados_treino.append(dado)
@@ -20,6 +22,8 @@ class KnnClassifier(ClassifierInterface):
         """ para cada amostra no dataset, buscar os k vizinhos mais proximos e 
         retornar a classe mais frequente entre eles """
         previsoes = []
+        if (test_dataset.palavras != "NULL"):
+            test_dataset.palavras = self.train_dataset.palavras
         for x in range(len(test_dataset.lista)):
             dado = test_dataset.get(x)
             self.dados_teste.append(dado)
@@ -39,7 +43,6 @@ class KnnClassifier(ClassifierInterface):
                         if d < distancias[i][0]:
                             distancias[i] = (d,treino[1])
                             break
-            print(distancias)
             for i in distancias:
                 cont = 0
                 if len(dic) == 0:
