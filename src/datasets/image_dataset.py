@@ -15,6 +15,14 @@ class ImageDataset(DatasetInterface):
             objeto = linha.split()
             self.lista.append(objeto)
         arquivo.close()
+        path = path.split("/")
+        path = f"{path[0]}/{path[1]}/{path[2]}"
+        for x in range(len(self.lista)):
+            k = self.lista[x][0].split('/')
+            if k[1] == "train" or k[1] == "test":
+                self.lista[x][0] = f"{path}/{k[1]}/{k[2]}"
+            else: 
+                self.lista[x][0] = f"{path}/{k[3]}/{k[4]}"
 
     def size(self) -> int:
         # retornar tamanho do dataset (numero de linhas do arquivo)

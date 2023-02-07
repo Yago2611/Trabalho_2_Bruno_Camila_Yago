@@ -27,4 +27,7 @@ def confusion_matrix(true_classes: List[str], predicted_classes: List) -> List[L
                     valor +=1
             vetor.append(valor)
         matriz.append(vetor)
-    return f"{dif_classes} --> {matriz}"
+    matriz_confusao = ""
+    for x in matriz:
+            matriz_confusao += f"\n{x}"
+    return f"{dif_classes} --> {matriz_confusao}"

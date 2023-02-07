@@ -39,6 +39,7 @@ class KnnClassifier(ClassifierInterface):
                         if d < distancias[i][0]:
                             distancias[i] = (d,treino[1])
                             break
+            print(distancias)
             for i in distancias:
                 cont = 0
                 if len(dic) == 0:
